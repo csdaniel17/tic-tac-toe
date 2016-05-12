@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-align: center;
+  color: black;
+  background-color: #999999;
+}
+
+body {
+  text-align: center;
+}
+
+h1 {
+  margin: 100px auto 30px;
+  font-size: 3em;
+}
+
+button {
+  width: 125px;
+  height: 125px;
+  font-size: 2em;
+  float: left;
+  background-color: #f2f2f2;
+  transition: 0.25s;
+  margin: 4px 2px;
+  display: block;
+  border-radius: 5px;
+}
+
+.row {
+  clear: left;
+}
+
+/*button:active {
+  font-size: 2.5em;
+  transform: scale(1.05);
+}*/
+
+button:focus {
+  outline: none;
+}
+
+.gameboard {
+  margin: 50px auto;
+  width: 387px;
+}
