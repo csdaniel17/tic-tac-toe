@@ -61,13 +61,13 @@ function checkWinner(board) {
     //save current combo
     var combo = winningCombos[i];
     //for each player use playerOccupiesSquares function to check if they won
-    if (playerOccupiesSquares("O", combo, board)) {
+    if (playerOccupiesSquares("o", combo, board)) {
       //if it's true then return player "O" as winner
-      return "O";
+      return "o";
     }
-    if (playerOccupiesSquares("X", combo, board)) {
+    if (playerOccupiesSquares("x", combo, board)) {
       //if it's true then return player "X" as winner
-      return "X";
+      return "x";
     }
   }
   //if go through all combos and there is no winner, return null - winner is "O", "X", or nobody
@@ -84,31 +84,31 @@ $(function () {
   $(".button").click(function () {
     var text = $(this).text();
     //don't change non-blank squares
-    if (text === "O" || text === "X") {
+    if (text === "o" || text === "x") {
       text = $(this).text();
     //first time change to "X"
     } else if (turnCount % 2 === 0) {
-      text = $(this).text("X");
+      text = $(this).text("x");
       turnCount++;
       var board = getCurrentBoard();
       var winner = checkWinner(board);
       if (winner) {
         $(".button").off();
-        alert("The winner is " + winner);
+        alert("the winner is " + winner);
       } else if (turnCount >= 9) {
-        alert("Game over");
+        alert("oh shoot - game over");
       }
     //second time change to "O"
     } else if (turnCount % 2 === 1) {
-      text = $(this).text("O");
+      text = $(this).text("o");
       turnCount++;
       var board = getCurrentBoard();
       var winner = checkWinner(board);
       if (winner) {
         $(".button").off();
-        alert("The winner is " + winner);
+        alert("the winner is " + winner);
       } else if (turnCount >= 9) {
-        alert("Game over");
+        alert("oh shoot - game over");
       }
     }
   });
