@@ -21,7 +21,7 @@ button {
   width: 125px;
   height: 125px;
   font-size: 3em;
-  float: left;
+
   background-color: #f2f2f2;
   transition: 0.25s;
   margin: 5px 5px;
@@ -31,10 +31,6 @@ button {
   box-shadow: 3px 3px #808080;
 }
 
-.row {
-  clear: left;
-}
-
 button:active {
   font-size: 4em;
   transform: scale(1.05);
@@ -42,6 +38,21 @@ button:active {
 
 button:focus {
   outline: none;
+}
+
+.gameboard button {
+  float: left;
+}
+
+#play-again {
+  font-size: 1.5em;
+  width: 200px;
+  height: 50px;
+  margin: 10px auto;
+}
+
+.row {
+  clear: left;
 }
 
 .gameboard {

@@ -45,7 +45,7 @@ function playerOccupiesSquares(player, squares, board) {
 
 //function that returns an array consisting of the current moves on the board
 function getCurrentBoard() {
-  var buttons = $("button");
+  var buttons = $(".button");
   var moves = [];
   for (var i = 0; i < buttons.length; i++) {
     var button = $(buttons[i]);
@@ -77,8 +77,11 @@ function checkWinner(board) {
 var turnCount = 0;
 
 $(function () {
+  $("#play-again").click(function () {
+    location.reload();
+  });
   //when you click a square (button)
-  $("button").click(function () {
+  $(".button").click(function () {
     var text = $(this).text();
     //don't change non-blank squares
     if (text === "O" || text === "X") {
@@ -90,7 +93,10 @@ $(function () {
       var board = getCurrentBoard();
       var winner = checkWinner(board);
       if (winner) {
+        $(".button").off();
         alert("The winner is " + winner);
+      } else if (turnCount >= 9) {
+        alert("Game over");
       }
     //second time change to "O"
     } else if (turnCount % 2 === 1) {
@@ -99,10 +105,11 @@ $(function () {
       var board = getCurrentBoard();
       var winner = checkWinner(board);
       if (winner) {
+        $(".button").off();
         alert("The winner is " + winner);
+      } else if (turnCount >= 9) {
+        alert("Game over");
       }
     }
   });
-
-
 });
