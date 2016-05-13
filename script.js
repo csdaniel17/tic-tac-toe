@@ -107,26 +107,29 @@ $(function () {
         $("#winner").text("the winner is: " + winner).show();
         $("#play-again").show();
         updateScore();
+        $(".button").prop("disabled", true);
       }
     //don't change non-blank squares
     } else if (text === "o" || text === "x") {
     //do nothing
     }
     //show draw if no one wins
-    if (turnCount >= 9) {
+    if (turnCount === 9) {
       draw++;
       $("#winner").text("oh shoot - game over").show();
       $("#play-again").show();
       updateScore();
+      $(".button").prop("disabled", true);
    }
   });
   $("#play-again").click(function () {
     resetGame();
+    $(".button").prop("disabled", false);
   });
 });
 
 function updateScore() {
-  $("#scoreboard").text("score:   x: " + winX + "   o: " + winO + "   draw: " + draw);
+  $("#scoreboard").text("x: " + winX + " |  o: " + winO + " |  draw: " + draw);
 }
 
 function resetGame() {
