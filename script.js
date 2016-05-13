@@ -75,6 +75,9 @@ function checkWinner(board) {
 }
 
 var turnCount = 0;
+var winX = 0;
+var winO = 0;
+var draw = 0;
 
 $(function () {
   $("#play-again").hide();
@@ -96,21 +99,35 @@ $(function () {
       var board = getCurrentBoard();
       var winner = checkWinner(board);
       if (winner) {
+        if (winner === "x") {
+          winX++;
+        } else {
+          winO++;
+        }
         $("#winner").text("the winner is: " + winner).show();
         $("#play-again").show();
-      } else if (turnCount >= 9) {
-        $("#winner").text("oh shoot - game over").show();
-        $("#play-again").show();
+        updateScore();
       }
     //don't change non-blank squares
     } else if (text === "o" || text === "x") {
     //do nothing
     }
+    //show draw if no one wins
+    if (turnCount >= 9) {
+      draw++;
+      $("#winner").text("oh shoot - game over").show();
+      $("#play-again").show();
+      updateScore();
+   }
   });
   $("#play-again").click(function () {
     resetGame();
   });
 });
+
+function updateScore() {
+  $("#scoreboard").text("score:   x: " + winX + "   o: " + winO + "   draw: " + draw);
+}
 
 function resetGame() {
   turnCount = 0;
