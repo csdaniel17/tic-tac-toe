@@ -77,9 +77,8 @@ function checkWinner(board) {
 var turnCount = 0;
 
 $(function () {
-  $("#play-again").click(function () {
-    location.reload();
-  });
+  $("#play-again").hide();
+  $("#winner").hide();
   //when you click a square (button)
   $(".button").click(function () {
     var text = $(this).text();
@@ -94,9 +93,11 @@ $(function () {
       var winner = checkWinner(board);
       if (winner) {
         $(".button").off();
-        alert("the winner is " + winner);
+        $("#winner").text("the winner is: " + winner).show();
+        $("#play-again").show();
       } else if (turnCount >= 9) {
-        alert("oh shoot - game over");
+        $("#winner").text("oh shoot - game over").show();
+        $("#play-again").show();
       }
     //second time change to "O"
     } else if (turnCount % 2 === 1) {
@@ -106,10 +107,15 @@ $(function () {
       var winner = checkWinner(board);
       if (winner) {
         $(".button").off();
-        alert("the winner is " + winner);
+        $("#winner").text("the winner is: " + winner).show();
+        $("#play-again").show();
       } else if (turnCount >= 9) {
-        alert("oh shoot - game over");
+        $("#winner").text("oh shoot - game over").show();
+        $("#play-again").show();
       }
     }
+  });
+  $("#play-again").click(function () {
+    location.reload();
   });
 });
