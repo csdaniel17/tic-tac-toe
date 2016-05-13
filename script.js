@@ -82,35 +82,29 @@ $(function () {
   //when you click a square (button)
   $(".button").click(function () {
     var text = $(this).text();
+    //if square is blank:
+    if (text === "") {
+      //if it is player 1's turn
+      if (turnCount % 2 === 0) {
+        text = $(this).text("x");
+      } else {
+        $(this).text("o");
+      }
+      //add to the turnCount
+      turnCount++;
+      //update winner text
+      var board = getCurrentBoard();
+      var winner = checkWinner(board);
+      if (winner) {
+        $("#winner").text("the winner is: " + winner).show();
+        $("#play-again").show();
+      } else if (turnCount >= 9) {
+        $("#winner").text("oh shoot - game over").show();
+        $("#play-again").show();
+      }
     //don't change non-blank squares
-    if (text === "o" || text === "x") {
-      text = $(this).text();
-    //first time change to "X"
-    } else if (turnCount % 2 === 0) {
-      text = $(this).text("x");
-      turnCount++;
-      var board = getCurrentBoard();
-      var winner = checkWinner(board);
-      if (winner) {
-        $("#winner").text("the winner is: " + winner).show();
-        $("#play-again").show();
-      } else if (turnCount >= 9) {
-        $("#winner").text("oh shoot - game over").show();
-        $("#play-again").show();
-      }
-    //second time change to "O"
-    } else if (turnCount % 2 === 1) {
-      text = $(this).text("o");
-      turnCount++;
-      var board = getCurrentBoard();
-      var winner = checkWinner(board);
-      if (winner) {
-        $("#winner").text("the winner is: " + winner).show();
-        $("#play-again").show();
-      } else if (turnCount >= 9) {
-        $("#winner").text("oh shoot - game over").show();
-        $("#play-again").show();
-      }
+    } else if (text === "o" || text === "x") {
+    //do nothing
     }
   });
   $("#play-again").click(function () {
