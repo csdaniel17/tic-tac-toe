@@ -126,6 +126,11 @@ $(function () {
     resetGame();
     $(".button").prop("disabled", false);
   });
+
+  $("#clear-score").click(function () {
+    location.reload();
+  });
+
 });
 
 function updateScore() {

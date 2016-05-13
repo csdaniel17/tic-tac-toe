@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  margin: 50px auto 30px;
+  margin: 30px auto 30px;
   font-size: 3em;
 }
 
@@ -45,10 +45,10 @@ button:focus {
 
 #play-again {
   font-size: 1.5em;
-  width: 200px;
+  width: 250px;
   height: 50px;
   margin: 10px auto;
-  color: #40ddcb;
+  color: #cc99ff;
   clear: both;
 }
 
@@ -65,7 +65,7 @@ button:focus {
   font-size: 1.5em;
   width: 250px;
   height: 50px;
-  margin: 100px auto 10px;
+  margin: 10px auto 10px;
   color: #cc99ff;
   clear: both;
 }
@@ -74,11 +74,20 @@ button:focus {
   font-size: 1.5em;
   width: 350px;
   height: 50px;
-  margin: 20px auto 10px;
+  margin: 10px auto 10px;
   color: #40ddcb;
   clear: both;
 }
 
 span {
   color: #cc99ff;
+}
+
+#clear-score {
+  font-size: 1.5em;
+  width: 250px;
+  height: 50px;
+  margin: 10px auto;
+  color: #40ddcb;
+  clear: both;
 }
