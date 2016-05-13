@@ -92,7 +92,6 @@ $(function () {
       var board = getCurrentBoard();
       var winner = checkWinner(board);
       if (winner) {
-        $(".button").off();
         $("#winner").text("the winner is: " + winner).show();
         $("#play-again").show();
       } else if (turnCount >= 9) {
@@ -106,7 +105,6 @@ $(function () {
       var board = getCurrentBoard();
       var winner = checkWinner(board);
       if (winner) {
-        $(".button").off();
         $("#winner").text("the winner is: " + winner).show();
         $("#play-again").show();
       } else if (turnCount >= 9) {
@@ -116,6 +114,13 @@ $(function () {
     }
   });
   $("#play-again").click(function () {
-    location.reload();
+    resetGame();
   });
 });
+
+function resetGame() {
+  turnCount = 0;
+  $(".button").text("");
+  $("#winner").hide();
+  $("#play-again").hide();
+}
