@@ -48,7 +48,7 @@ button:focus {
   width: 250px;
   height: 50px;
   margin: 10px auto;
-  color: #cc99ff;
+  color: #23a9ff;
   clear: both;
 }
 
@@ -66,7 +66,7 @@ button:focus {
   width: 250px;
   height: 50px;
   margin: 10px auto 10px;
-  color: #cc99ff;
+  color: #23a9ff;
   clear: both;
 }
 
@@ -75,12 +75,12 @@ button:focus {
   width: 350px;
   height: 50px;
   margin: 10px auto 10px;
-  color: #40ddcb;
+  color: #00e6c6;
   clear: both;
 }
 
 span {
-  color: #cc99ff;
+  color: #23a9ff;
 }
 
 #clear-score {
@@ -88,6 +88,6 @@ span {
   width: 250px;
   height: 50px;
   margin: 10px auto;
-  color: #40ddcb;
+  color: #00e6c6;
   clear: both;
 }
